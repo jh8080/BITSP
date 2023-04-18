@@ -124,7 +124,7 @@ lines(tem,lwd=2,col="red")
 legend("topleft",legend=c("Conditional", "Historical"),
        col=c("blue", "red"), lty=1, cex=0.8,lwd=2)
 
-
+par(mfrow=c(2,1))
 # Standardizing the returns
 sharp=cbind(R$SP/sd.SP,R$BTC/sd.BTC)
 colnames(sharp)=c("SP","BTC")
@@ -144,10 +144,10 @@ tem=zoo(tem, order.by = index(R)[(hold+1):nrow(R)])
 
 # Plotting
 plot(tem[,2],main="Unstandardized Return",ylab="",
-     col="blue",lwd=2)
+     col="blue",cex.axis=0.8,lwd=2)
 abline(h=0)
 lines(tem[,1],lwd=2,col="red")
-legend("topright",legend=c("Conditional", "Historical"),
+legend("topright",legend=c("BTC", "SP"),
        col=c("blue", "red"), lty=1, cex=0.8,lwd=2)
 
 # Calculating and plotting the standardized returns 
@@ -164,7 +164,7 @@ plot(tem[,2],main="Standardized Return",ylab="",
      col="blue",cex.axis=0.8,lwd=2)
 abline(h=0)
 lines(tem[,1],lwd=2,col="red")
-legend("topleft",legend=c("BTC", "SP"),
+legend("topright",legend=c("BTC", "SP"),
        col=c("blue", "red"), lty=1, cex=0.8,lwd=2)
 
 
